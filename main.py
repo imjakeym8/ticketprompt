@@ -115,7 +115,7 @@ async def transcribe(ctx: discord.Interaction, status:app_commands.Choice[str]):
         ctx.user.name]],
     target_row))
     
-    await loop.run_in_executor(None, lambda: coll.update_one({"ticket": ctx.channel.name}, {"$set": {"synced_to_sheets": True,"ticket_close_date":today}}))
+    await loop.run_in_executor(None, lambda: coll.update_one({"ticket": ctx.channel.name}, {"$set": {"synced_to_sheets": True,"ticket_close_date": today,"status": status.value}}))
 
     await ctx.followup.send(f"Transcribed {ctx.user.display_name}'s record successfully.", ephemeral=True)
 
