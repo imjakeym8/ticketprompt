@@ -37,7 +37,7 @@ async def on_ready():
     await bot.tree.sync()
     print(f'We have logged in as {bot.user}')
 
-class FeedbackModal(ui.Modal, title="Feedback Form"):
+class FeedbackModal(ui.Modal, title="Kindly fill up your details in our form here."):
     wallet = ui.Label(text="Wallet Address", component=ui.TextInput())
     email = ui.Label(text="Email Address", component=ui.TextInput())
 
